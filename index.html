@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Car Insurance Decision Helper</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Car Insurance Decision Helper</h1>
+
+    <form id="insuranceForm">
+
+        <div class="form-group">
+            <label>How old is your car?</label>
+            <input type="number" id="carAge" placeholder="Enter car age" required min="0">
+        </div>
+        <div class="form-group">
+            <label>How many miles are on it?</label>
+            <input type="number" id="carMiles" placeholder="Enter car miles" required min="0">
+        </div>
+        <div class="form-group">
+            <label>What is the make and model of your car?</label>
+            <input type="text" id="carModel" placeholder="Enter car model" required>
+        </div>
+        <div class="form-group">
+            <label>Would you like protection if your car is damaged in a collision?</label><br>
+            <input type="radio" id="collisionYes" name="collision" value="yes" required>
+            <label for="collisionYes">Yes</label>
+            <input type="radio" id="collisionNo" name="collision" value="no">
+            <label for="collisionNo">No</label>
+        </div>
+        
+        <div class="form-group">
+            <label>Would you like protection if your car is damaged by something else (theft, vandalism, natural disaster)?</label><br>
+            <input type="radio" id="comprehensiveYes" name="comprehensive" value="yes" required>
+            <label for="comprehensiveYes">Yes</label>
+            <input type="radio" id="comprehensiveNo" name="comprehensive" value="no">
+            <label for="comprehensiveNo">No</label>
+        </div>
+        <div class="form-group">
+            <label>Would you like protection if your car is damaged by someone without enough insurance to pay for it?</label><br>
+            <input type="radio" id="uninsuredYes" name="uninsured" value="yes" required>
+            <label for="uninsuredYes">Yes</label>
+            <input type="radio" id="uninsuredNo" name="uninsured" value="no">
+            <label for="uninsuredNo">No</label>
+        </div>
+        <div class="form-group">
+            <label>Do you want coverage for medical expenses?</label><br>
+            <input type="radio" id="PIPYes" name="PIP" value="yes" required>
+            <label for="PIPYes">Yes</label>
+            <input type="radio" id="PIPNo" name="PIP" value="no">
+            <label for="PIPNo">No</label>
+        </div>
+        <div class="form-group">
+            <label>Do you drive long distances?</label><br>
+            <input type="radio" id="longDistanceYes" name="longDistance" value="yes" required>
+            <label for="longDistanceYes">Yes</label>
+            <input type="radio" id="longDistanceNo" name="longDistance" value="no">
+            <label for="longDistanceNo">No</label>
+        </div>
+        <div class="form-group">
+            <label>Do you want roadside assistance?</label><br>
+            <input type="radio" id="roadsideYes" name="roadside" value="yes" required>
+            <label for="roadsideYes">Yes</label>
+            <input type="radio" id="roadsideNo" name="roadside" value="no">
+            <label for="roadsideNo">No</label>
+        </div>
+        <div class="form-group">
+            <label>Do you want coverage on rental cars?</label><br>
+            <input type="radio" id="rentalYes" name="rental" value="yes" required>
+            <label for="rentalYes">Yes</label>
+            <input type="radio" id="rentalNo" name="rental" value="no">
+            <label for="rentalNo">No</label>
+        </div>
+
+        <button type="button" onclick="showRecommendation()">Get Recommendation</button>
+    </form>
+
+    <div class="result" id="recommendation">
+        <h3>Your Recommended Insurance Type:</h3>
+        <p id="insuranceType"></p>
+    </div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
