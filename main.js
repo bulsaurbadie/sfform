@@ -1,4 +1,6 @@
-function showRecommendation() {
+function showRecommendation(event) {
+    event.preventDefault(); // Prevent form submission
+    
     // Get form values
     const carModel = document.getElementById("carModel").value;
     const carAge = parseInt(document.getElementById("carAge").value);
@@ -44,42 +46,9 @@ function showRecommendation() {
     let maxPoints = Math.max(...Object.values(coveragePoints));
     let recommendedCoverage = Object.keys(coveragePoints).find(key => coveragePoints[key] === maxPoints);
 
-    // Prepare the recommendation and description
-    let recommendationText = "";
-    let description = "";
+    // Save recommendation in localStorage
+    localStorage.setItem("insuranceRecommendation", recommendedCoverage);
 
-    switch (recommendedCoverage) {
-        case "Collision":
-            recommendationText = "Collision Coverage";
-            description = "Collision coverage helps pay to repair or replace your vehicle if it overturns or collides with another vehicle or object.";
-            break;
-        case "Comprehensive":
-            recommendationText = "Comprehensive Coverage";
-            description = "Comprehensive coverage helps pay to repair or replace your vehicle if it's damaged by something other than a collision, including theft, fire, vandalism, or hitting an animal.";
-            break;
-        case "Liability":
-            recommendationText = "Liability Coverage";
-            description = "Liability coverage pays another party's medical expenses, vehicle repairs, and property damage if you were responsible for the accident.";
-            break;
-        case "Uninsured":
-            recommendationText = "Uninsured & Underinsured Motorist Coverage";
-            description = "This coverage helps pay for medical expenses, pain and suffering, and lost wages if you're hit by someone who doesn’t have enough insurance or none at all.";
-            break;
-        case "Medical":
-            recommendationText = "Medical Payments Coverage";
-            description = "Medical payments coverage helps pay medical and funeral expenses if an insured person is injured or killed in an accident.";
-            break;
-        case "Roadside":
-            recommendationText = "Emergency Road Service Coverage";
-            description = "This helps you get back on the road quickly by covering the cost of towing, flat tire changes, and other roadside repairs.";
-            break;
-        case "Rental":
-            recommendationText = "Car Rental Reimbursement Coverage";
-            description = "Rental car reimbursement coverage helps pay for a rental car while your car is being repaired after an accident.";
-            break;
-    }
-
-    // Display the recommendation
-    document.getElementById("insuranceType").innerHTML = `<strong>${recommendationText}</strong>: ${description}`;
-    document.getElementById("recommendation").style.display = "block";
+    // Redirect to the result page
+    window.location.href = "result.html";
 }
