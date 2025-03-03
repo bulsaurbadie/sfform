@@ -17,12 +17,24 @@
     
     <div class="result">
         <h3>Your Recommended Insurance Type:</h3>
-        <p id="insuranceType"></p>
+        <p>Your recommended insurance coverage type is: <span id="insuranceType">Loading...</span></p>
+        <script>
+            // Make sure the page content is loaded before accessing the DOM
+        window.onload = function() {
+            const insuranceType = localStorage.getItem("insuranceRecommendation");
+            const insuranceElement = document.getElementById("insuranceType");
+            
+            if (insuranceElement) {
+                insuranceElement.innerText = insuranceType || "No recommendation available";
+            } else {
+                console.error("Element with id 'insuranceType' not found");
+            }
+        };
+        </script>
     </div>
 </div>
 
 <!-- Add the confetti script just before closing the body tag -->
-<script src="result.js"></script>
 <script src="https://run.confettipage.com/here.js" data-confetticode="U2FsdGVkX19GiAMiq92llLgBVLqddHO73Us9OimUz9CCx0w7weHHz0XtdjJQUiI5fHY9kONOmTxdivJB6YJxJ6pwLi1KC3QqXCq8CDC8kFUk1vY/G4BenYqXVzRa2U5t9Ej+iH2IHA1RFQmKqt1GG2GR/gkoWygFDGn9Hmb86dBJ0n7PyGKffSC4xBy16I/M9uXQThJFJgSX4TkVJrj7Mmg5lT6tor8KMNKxOIYXEBoMSHdM0Tyx23NBBzS74vTeKKAWrT+PWLzm0q4snb87iZxPodl2HmB2BaNmeuu08M/j6dEMloI9o0a/gIZHFflbAC/aaiDx4uEks1YINjPjzJ/ESaShe1njEyCfzbcZCdBM+yvvfL85lKzpnVlj0Vd7FbQe2XivgX33kKlUUB4Lq6QFqMT2WIttt+IcivsVGRHYRIKTBMSYoVr03ocetelqBMWi7DDKWOLnakOJhqDfNdxlxbdsq9XSUuATI61BVhJc29CPRbMmQyUAjlnU7bGSpenbLysftFYk9ldSzlyKTDlpZbLqNQawe2DEO4zjjcvr/g9d5YPBxvfXL6iQRLeUkjFhU+xR4mwtwI3k/XGHrMjecHyxqdQhx4aHL2J9aIDDi6K6gMk7XdEX2mv73IBKwrMYoDtoLVuS0eMiY8n5CaLmcJuCPIFmbf7YsNBvy5yXCk9SysF4/dqteg++uo4FeQki+QUXbsjssTNx8KF73WXD4hVo83VGl5/zIB7A638gHAkmhhyLa1C6F/sV8mrO2ajrOXR3vS2LCc91VVGQPw=="></script>
 
 </body>
