@@ -22,31 +22,43 @@
 </div>
 
 <script>
-    // Using DOMContentLoaded to ensure the DOM is fully loaded before accessing elements
-    document.addEventListener("DOMContentLoaded", function() {
-        // Retrieve the recommendation from localStorage
-        const insuranceType = localStorage.getItem("insuranceRecommendation");
+document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve the recommendation from localStorage
+    const insuranceType = localStorage.getItem("insuranceRecommendation");
 
-        // Log the retrieved value for debugging
-        console.log("Insurance Recommendation retrieved from localStorage:", insuranceType);
+    // Log the retrieved value for debugging
+    console.log("Insurance Recommendation retrieved from localStorage:", insuranceType);
 
-        // Get the element where the recommendation will be displayed
-        const insuranceElement = document.getElementById("insuranceType");
+    // Get the element where the recommendation will be displayed
+    const insuranceElement = document.getElementById("insuranceType");
+    const resultElement = document.querySelector(".result"); // Get the result container
 
-        // Ensure the element exists before updating it
-        if (insuranceElement) {
-            if (insuranceType) {
-                // If a recommendation was retrieved, set the text
-                insuranceElement.innerText = insuranceType;
-            } else {
-                // If no recommendation was found, display a default message
-                insuranceElement.innerText = "No recommendation available";
+    // Ensure the element exists before updating it
+    if (insuranceElement) {
+        if (insuranceType) {
+            // If a recommendation was retrieved, set the text
+            console.log("Setting insuranceType to:", insuranceType);  // Log the value being set
+            insuranceElement.innerText = insuranceType;
+
+            // Make the result container visible by changing its display property
+            if (resultElement) {
+                resultElement.style.display = "block";
             }
         } else {
-            // If the element doesn't exist, log an error
-            console.error("Element with id 'insuranceType' not found");
+            // If no recommendation was found, display a default message
+            insuranceElement.innerText = "No recommendation available";
+
+            // Make sure the result container is visible even if there's no recommendation
+            if (resultElement) {
+                resultElement.style.display = "block";
+            }
         }
-    });
+    } else {
+        // If the element doesn't exist, log an error
+        console.error("Element with id 'insuranceType' not found");
+    }
+});
+
 </script>
 
 <!-- Add the confetti script just before closing the body tag -->
