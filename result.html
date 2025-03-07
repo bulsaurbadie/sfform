@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (insuranceType) {
             // If a recommendation was retrieved, set the text
             console.log("Setting insuranceType to:", insuranceType);  // Log the value being set
-            insuranceElement.innerHTML = `<strong>${recommendationText}</strong>: ${description}`;
+            insuranceElement.innerHTML = `<strong>${recommendationText}</strong> /n ${description}`;
 
             // Make the result container visible by changing its display property
             if (resultElement) {
