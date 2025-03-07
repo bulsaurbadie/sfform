@@ -32,5 +32,5 @@ window.onload = function() {
             description = "Rental car reimbursement coverage helps pay for a rental car while your car is being repaired after an accident.";
             break;
     }
-    document.getElementById("insuranceType").innerText = recommendationText || "No recommendation available";
+    document.getElementById("insuranceType").innerText = `<strong>${recommendationText}</strong>: ${description}`; || "No recommendation available";
 };
